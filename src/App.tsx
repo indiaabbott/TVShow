@@ -23,10 +23,15 @@ function App() {
   }
   return (
     <div className="App">
-      <p>Hello World!!</p>
-      <p>{episodes.length}</p>
-      <p>{episodes[0].name}</p>
-      <img src = {episodes[0].image.medium} />
+      {episodes.map((episode: IEpisode) => {
+        return (<div key={episode.id}>
+          <h1>{episode.name} - S{episode.season} E{episode.number}</h1>
+          <img src = {episode.image.medium} alt={episode.summary} />
+          <p>{episode.summary}</p>
+          </div>
+        )
+      })}
+      <p>The data has been obtained from <a href="https://tvmaze.com/">TVMaze.com</a></p>
     </div>
   );
 }
