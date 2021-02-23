@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import episodes from './episodes.json'
 
 function App() {
   interface IEpisode {
@@ -22,7 +23,10 @@ function App() {
   }
   return (
     <div className="App">
-      <p>Hello World</p>
+      <p>Hello World!!</p>
+      <p>{episodes.length}</p>
+      <p>{episodes[0].name}</p>
+      <img src = {episodes[0].image.medium} />
     </div>
   );
 }
