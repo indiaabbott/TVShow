@@ -31,8 +31,8 @@ function padEpisode(unpaddedNumber: number) {
 
 function Episode(props: IEpisode) {
     return (
-        <div className="Episodes">
-            <div key={props.id}>
+        <div className="Episodes" key={props.id} id={`${props.id}`}>
+            <div>
                 <h1>{props.name} - S{padEpisode(props.season)} E{padEpisode(props.number)}</h1>
                 <img src={props.image.medium} alt={props.summary} />
                 <p>{props.summary}</p>
@@ -41,6 +41,16 @@ function Episode(props: IEpisode) {
         </div>
     );
 };
+
+function selectEpisode(props: IEpisode) {
+    return (<option value={props.id} key={props.id}>S{padEpisode(props.season)}E{padEpisode(props.number)} - {props.name}</option>)
+}
+
+function scrollingToEpisode(event: React.ChangeEvent<HTMLSelectElement>) {
+    //console.log(event.target.value)
+    const element = document.getElementById(`${event.target.value}`);
+    element?.scrollIntoView()
+}
 
 
 //EpisodeList returns the input textbox and a list of episodes
@@ -72,11 +82,11 @@ function EpisodeApp() {
 
     return <div>
     <div className="input-block">
+        <select onChange={scrollingToEpisode}>{episodes.map(selectEpisode)}</select>
         <input value={userInput} onChange={handleChange} />
         <p>Displaying {filteredEpisodes.length}/{episodes.length} episodes</p>
     </div>
         {episodeList}
-
     </div>
 }
 

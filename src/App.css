@@ -51,3 +51,8 @@ input {
 p {
   margin: 0px;
 }
+
+select {
+  height: 15px;
+  margin-right: 10px;
+}
