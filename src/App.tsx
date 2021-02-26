@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 import Credits from './Components/Credits'
-import EpisodeList from './Components/EpisodeList'
+import EpisodeApp from './Components/EpisodeList'
 
 function App() {
   return (
   <div>
-    <EpisodeList />
+    <EpisodeApp />
     <Credits />
   </div>
   );

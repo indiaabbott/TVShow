@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.input-block {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+
+input {
+  height: 15px;
+  margin-right: 10px;
+}
+
+p {
+  margin: 0px;
+}
